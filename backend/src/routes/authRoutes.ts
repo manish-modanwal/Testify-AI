@@ -48,8 +48,8 @@ router.get('/github/callback', async (req, res) => {
 
     res.cookie('github_token', accessToken, {
         httpOnly: true,
-        secure: process.env.NODE_ENV === 'production',
-        sameSite: 'lax',
+        secure: true,
+        sameSite: 'none',
         maxAge: 7 * 24 * 60 * 60 * 1000,
     });
 
