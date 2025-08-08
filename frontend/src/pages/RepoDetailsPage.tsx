@@ -6,6 +6,7 @@ import { toast } from 'react-hot-toast';
 import RepoExplorer from '../components/RepoExplorer';
 import ActionPanel from '../components/ActionPanel';
 import GeneratedOutput from '../components/GeneratedOutput';
+import type { FileSummary } from '../types';
 
 
 interface FileItem {
@@ -23,15 +24,15 @@ interface SelectedFile {
     language: string;
 }
 
-interface FileSummary {
-    title: string;
-    description: string;
-    framework: string;
-    complexity: string;
-    filesCovered: string[];
-    fileContent: string;
-    fileName: string;
-}
+// interface FileSummary {
+//     title: string;
+//     description: string;
+//     framework: string;
+//     complexity: string;
+//     filesCovered: string[];
+//     fileContent: string;
+//     fileName: string;
+// }
 
 const SUPPORTED_LANGUAGES: { [key: string]: { frameworks: string[]; extensions: string[] } } = {
     'javascript/typescript': { frameworks: ['jest', 'mocha', 'cypress'], extensions: ['js', 'jsx', 'ts', 'tsx'] },
