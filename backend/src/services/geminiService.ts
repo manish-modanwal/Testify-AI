@@ -151,8 +151,9 @@ export const generateTestSummaries = async (files: { fileName: string; content: 
             
             summaryObject.fileName = file.fileName;
             allFileSummaries.push(summaryObject);
-        } catch (error) {
+        } catch (error:any) {
             console.error('Error generating or parsing summary for a file:', error);
+            console.error('❌ Gemini API Error:', error.response?.data || error.message || error);
             
             allFileSummaries.push({
                 title: 'Error Generating Summary',
