@@ -1,0 +1,75 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+
+@keyframes particle-anim {
+  0% {
+    transform: translateY(0) rotate(0deg);
+    opacity: 0.1;
+    border-radius: 50%;
+  }
+  100% {
+    transform: translateY(-1000px) rotate(720deg);
+    opacity: 0;
+    border-radius: 50%;
+  }
+}
+
+.particle {
+  position: absolute;
+  background: rgba(255, 255, 255, 0.2);
+  bottom: -150px;
+  animation: particle-anim 20s infinite;
+  z-index: 0;
+}
+
+
+.particle-1 { animation-delay: 2s; }
+.particle-2 { animation-delay: 4s; }
+.particle-3 { animation-delay: 6s; }
+.particle-4 { animation-delay: 8s; }
+.particle-5 { animation-delay: 10s; }
+.particle-6 { animation-delay: 12s; }
+.particle-7 { animation-delay: 14s; }
+.particle-8 { animation-delay: 16s; }
+.particle-9 { animation-delay: 18s; }
+.particle-10 { animation-delay: 20s; }
+
+
+@keyframes typing {
+  from {
+    width: 0;
+  }
+  to {
+    width: 100%;
+  }
+}
+
+
+.typing-text {
+  border-right: none !important;
+}
+
+
+@keyframes moveParticles {
+  0% {
+    transform: translateY(0) rotate(0);
+    opacity: 0;
+  }
+  50% {
+    opacity: 1;
+  }
+  100% {
+    transform: translateY(-1000px) rotate(720deg);
+    opacity: 0;
+  }
+}
+
+.particle {
+  position: absolute;
+  bottom: -20px;
+  background: #60a5fa; 
+  border-radius: 50%;
+  animation: moveParticles infinite ease-in-out;
+}
