@@ -1,6 +1,5 @@
 // frontend/src/App.tsx
 
-
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import { Toaster } from 'react-hot-toast';
 
@@ -10,21 +9,16 @@ import DashboardPage from './pages/DashboardPage';
 import RepoDetailsPage from './pages/RepoDetailsPage'; 
 import HomePage from './pages/Homepage';
 
-
 function App() {
   return (
     <Router>
       <Toaster />
-     
-      <Layout>
-        <Routes>
-          <Route path="/" element={<HomePage></HomePage>} /> 
-          <Route path="/login" element={<LoginPage />} />
-          <Route path="/auth/callback" element={<LoginPage />} />
-          <Route path="/dashboard" element={<DashboardPage />} />
-          <Route path="/repo/:owner/:repoName" element={<RepoDetailsPage />} />
-        </Routes>
-      </Layout>
+      <Routes>
+        <Route path="/" element={<Layout><HomePage /></Layout>} />
+        <Route path="/login" element={<Layout><LoginPage /></Layout>} />
+        <Route path="/dashboard" element={<Layout><DashboardPage /></Layout>} />
+        <Route path="/repo/:owner/:repoName" element={<Layout><RepoDetailsPage /></Layout>} />
+      </Routes>
     </Router>
   );
 }
