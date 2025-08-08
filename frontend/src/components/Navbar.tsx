@@ -7,12 +7,10 @@ const Navbar: React.FC = () => {
     const navigate = useNavigate();
     const [isLoggedIn, setIsLoggedIn] = useState(false);
 
-    // FIX: यह backend का सही login endpoint है।
-    const GITHUB_AUTH_URL = `${import.meta.env.VITE_API_URL}/api/auth/github`;
-
     useEffect(() => {
         const checkAuthStatus = async () => {
             try {
+                // Change 1: Use VITE_API_URL for the API call
                 const response = await axios.get(`${import.meta.env.VITE_API_URL}/api/auth/status`, {
                     withCredentials: true,
                 });
@@ -29,6 +27,7 @@ const Navbar: React.FC = () => {
     };
 
     const handleLogout = () => {
+        // Change 2: Use VITE_API_URL for the logout redirect
         window.location.href = `${import.meta.env.VITE_API_URL}/api/auth/logout`;
     };
 
@@ -65,13 +64,12 @@ const Navbar: React.FC = () => {
                         Logout
                     </button>
                 ) : (
-                    // FIX: Login button अब सीधे backend के login URL पर जाएगा
-                    <a
-                        href={GITHUB_AUTH_URL}
+                    <button
+                        onClick={() => handleNavLinkClick('/login')}
                         className="px-6 py-2 bg-blue-600 text-white font-bold rounded-full shadow-lg hover:bg-blue-700 transition-all duration-300 focus:outline-none"
                     >
-                        Login with GitHub
-                    </a>
+                        Login
+                    </button>
                 )}
             </div>
         </nav>
