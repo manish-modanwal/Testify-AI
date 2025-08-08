@@ -1,5 +1,5 @@
 /* eslint-disable no-irregular-whitespace */
-import { useEffect, useState, useCallback } from 'react'; 
+import { useEffect, useState, useCallback } from 'react';
 import { useParams, useNavigate } from 'react-router-dom';
 import axios from 'axios';
 import { toast } from 'react-hot-toast';
@@ -74,9 +74,9 @@ const RepoDetailsPage = () => {
     const [newFileName, setNewFileName] = useState('');
     const [prLink, setPrLink] = useState<string | null>(null);
     const [isCreatingPr, setIsCreatingPr] = useState(false);
-    const [selectedFileLanguage, setSelectedFileLanguage] = useState('');
     
-   
+    
+    
     const fetchRepoContents = useCallback(async (path = '') => {
         setLoading(true);
         try {
@@ -112,14 +112,12 @@ const RepoDetailsPage = () => {
         if (files.length === 0) {
             setSupportedFrameworks([]);
             setSelectedFramework('');
-            setSelectedFileLanguage('');
             return;
         }
         const languages = new Set(files.map(f => f.language));
         if (languages.size > 1) {
             setSupportedFrameworks([]);
             setSelectedFramework('');
-            setSelectedFileLanguage('');
             return;
         }
         const langKey = languages.values().next().value;
@@ -127,11 +125,9 @@ const RepoDetailsPage = () => {
             const frameworks = SUPPORTED_LANGUAGES[langKey].frameworks;
             setSupportedFrameworks(frameworks);
             setSelectedFramework(frameworks[0] || '');
-            setSelectedFileLanguage(langKey);
         } else {
             setSupportedFrameworks([]);
             setSelectedFramework('');
-            setSelectedFileLanguage('');
         }
     };
 
