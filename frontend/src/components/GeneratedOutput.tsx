@@ -1,18 +1,8 @@
-
-
 import React from 'react';
 import SyntaxHighlighter from 'react-syntax-highlighter';
 import { atomOneDark } from 'react-syntax-highlighter/dist/esm/styles/hljs';
-
 import { IoSparklesOutline } from 'react-icons/io5'; 
-
-interface FileSummary {
-    title: string;
-    description: string;
-    framework: string;
-    complexity: string;
-    fileName: string;
-}
+import type { FileSummary } from '../types';
 
 interface GeneratedOutputProps {
     allFileSummaries: FileSummary[];
