@@ -7,7 +7,7 @@ const Navbar: React.FC = () => {
     const navigate = useNavigate();
     const [isLoggedIn, setIsLoggedIn] = useState(false);
 
-    // आपके backend का GitHub authentication URL
+    // FIX: यह backend का सही login endpoint है।
     const GITHUB_AUTH_URL = `${import.meta.env.VITE_API_URL}/api/auth/github`;
 
     useEffect(() => {
@@ -65,7 +65,7 @@ const Navbar: React.FC = () => {
                         Logout
                     </button>
                 ) : (
-                    // FIX: Login button को <a> tag में बदल दिया गया है
+                    // FIX: Login button अब सीधे backend के login URL पर जाएगा
                     <a
                         href={GITHUB_AUTH_URL}
                         className="px-6 py-2 bg-blue-600 text-white font-bold rounded-full shadow-lg hover:bg-blue-700 transition-all duration-300 focus:outline-none"
