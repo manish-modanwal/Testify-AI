@@ -75,8 +75,8 @@ router.get('/status', (req, res) => {
 router.get('/logout', (req, res) => {
     res.clearCookie('github_token', {
         httpOnly: true,
-        secure: process.env.NODE_ENV === 'production',
-        sameSite: 'lax',
+        secure: true,
+        sameSite: 'none',
     });
    
     res.redirect(process.env.CLIENT_URL!);
