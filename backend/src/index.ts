@@ -23,6 +23,8 @@ app.use(cors({
     credentials: true
 }));
 
+console.log('✅ CORS middleware is running with origin:', 'https://testify-ai-sage.vercel.app');
+
 app.use('/api/auth', authRoutes);
 app.use('/api/github', repoRoutes);
 app.use('/api/ai', aiRoutes);
