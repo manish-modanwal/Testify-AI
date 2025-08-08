@@ -1,12 +1,8 @@
-/* eslint-disable no-irregular-whitespace */
-
-
 import { useEffect, useState, useRef } from 'react';
 import { useNavigate } from 'react-router-dom';
 import axios from 'axios';
 import { toast } from 'react-hot-toast';
 import { FaGithub, FaCheckCircle, FaRocket } from 'react-icons/fa';
-
 
 const LoginPage = () => {
     const navigate = useNavigate();
@@ -24,7 +20,6 @@ const LoginPage = () => {
 
             const handleCallback = async () => {
                 try {
-                    
                     const response = await axios.get(
                         `${import.meta.env.VITE_API_URL}/api/auth/github/callback?code=${code}`,
                         { withCredentials: true }
@@ -41,9 +36,7 @@ const LoginPage = () => {
                         toast.error('Authentication failed.');
                         navigate('/login');
                     }
-
                 }
-                // eslint-disable-next-line @typescript-eslint/no-explicit-any
                 catch (error: any) {
                     console.error("❌ LoginPage: Authentication failed:", error.response?.data || error.message);
                     toast.error(error.response?.data.error || 'Authentication failed.');
@@ -57,15 +50,12 @@ const LoginPage = () => {
 
     const handleLogin = () => {
         console.log('➡️ LoginPage: Redirecting to GitHub for authorization...');
-       
         window.location.href = `${import.meta.env.VITE_API_URL}/api/auth/github`;
     };
 
     return (
         <div className='flex items-center justify-center min-h-screen bg-gray-950 text-white p-4'>
             <div className='flex flex-col md:flex-row items-center justify-between w-full max-w-6xl'>
-
-               
                 <div className='md:w-1/2 text-left md:pr-12 mb-10 md:mb-0'>
                     <h1 className='text-5xl md:text-6xl font-extrabold text-blue-400 leading-tight'>
                         Generate Test Cases. Effortlessly.
@@ -89,10 +79,7 @@ const LoginPage = () => {
                     </ul>
                 </div>
 
-              
                 <div className='relative p-10 rounded-xl shadow-2xl text-center w-full max-w-sm overflow-hidden bg-gray-900 border border-gray-700/50 transform transition-all duration-500 hover:border-blue-500 hover:scale-105'>
-
-                  
                     <div className="absolute inset-0 border-4 border-transparent rounded-xl pointer-events-none z-0 transition-all duration-500 group-hover:border-blue-500 opacity-0 group-hover:opacity-100"></div>
 
                     <div className="relative z-10 flex flex-col items-center">
@@ -120,11 +107,9 @@ const LoginPage = () => {
                         )}
                     </div>
                 </div>
-
             </div>
         </div>
     );
-
 };
 
 export default LoginPage;
